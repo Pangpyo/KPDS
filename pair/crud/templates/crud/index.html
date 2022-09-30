@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <section class="container">
+    <div class="text-center m-3">
+        <h1>영화 리뷰 페이지</h1>
+    </div>
+
     <a type="button" class="btn btn-dark" href="{% url 'crud:create' %}"
         style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
         리뷰 작성
@@ -16,9 +21,9 @@
         </thead>
         <tbody>
             {% for review in reviews %}
-            <tr>
-                <td><a href="{% url 'crud:detail' review.pk %}">{{ review.pk }}</a></td>
-                <td>{{ review.title }}</td>
+            <tr class="align-middle">
+                <td><a class="btn border-white" href="{% url 'crud:detail' review.pk %}">{{ review.pk }}</a></td>
+                <td><a class="btn border-white" href="{% url 'crud:detail' review.pk %}">{{ review.title }}</a></td>
                 <td>{{ review.created_at }}</td>
             </tr>
             {% endfor %}
